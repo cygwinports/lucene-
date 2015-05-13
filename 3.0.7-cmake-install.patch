@@ -1,0 +1,24 @@
+--- origsrc/LucenePlusPlus-rel_3.0.7/src/contrib/CMakeLists.txt	2015-01-30 10:14:22.000000000 -0600
++++ src/LucenePlusPlus-rel_3.0.7/src/contrib/CMakeLists.txt	2015-05-13 11:50:57.245010700 -0500
+@@ -53,6 +53,8 @@ target_link_libraries(lucene++-contrib
+ cotire(lucene++-contrib)
+ 
+ install(TARGETS lucene++-contrib
+-  DESTINATION "${LIB_DESTINATION}"
++  LIBRARY DESTINATION "${LIB_DESTINATION}"
++  RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
++  ARCHIVE DESTINATION "${LIB_DESTINATION}"
+   COMPONENT runtime
+ )
+--- origsrc/LucenePlusPlus-rel_3.0.7/src/core/CMakeLists.txt	2015-01-30 10:14:22.000000000 -0600
++++ src/LucenePlusPlus-rel_3.0.7/src/core/CMakeLists.txt	2015-05-13 11:39:16.865573800 -0500
+@@ -52,6 +52,8 @@ install(FILES ${lucene_headers}
+ )
+ 
+ install(TARGETS lucene++
+-  DESTINATION "${LIB_DESTINATION}"
++  LIBRARY DESTINATION "${LIB_DESTINATION}"
++  RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
++  ARCHIVE DESTINATION "${LIB_DESTINATION}"
+   COMPONENT runtime
+ )

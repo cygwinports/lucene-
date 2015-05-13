@@ -1,0 +1,29 @@
+inherit cmake
+
+NAME="lucene++"
+VERSION=3.0.7
+RELEASE=1
+CATEGORY="Libs"
+SUMMARY="C++ port of Lucene search engine"
+DESCRIPTION="Lucene++ is an up to date C++ port of the popular Java Lucene
+library, a high-performance, full-featured text search engine."
+HOMEPAGE="https://github.com/luceneplusplus/LucenePlusPlus"
+SRC_URI="${HOMEPAGE}/archive/rel_${VERSION}/LucenePlusPlus-rel_${VERSION}.tar.gz"
+SRC_DIR="LucenePlusPlus-rel_${VERSION}"
+PATCH_URI="3.0.7-cmake-install.patch"
+
+PKG_NAMES="liblucene++0 liblucene++-devel"
+liblucene__0_CONTENTS="usr/bin/cyglucene++*-0.dll usr/share/doc/"
+liblucene___devel_REQUIRES="libboost-devel"
+liblucene___devel_CONTENTS="
+	usr/include/lucene++/
+	usr/lib/liblucene++*.dll.a
+	usr/lib/pkgconfig/liblucene++*
+"
+
+src_test() {
+	cd ${B}
+	PATH="${B}/src/contrib:${B}/src/core:$PATH" \
+	./src/test/lucene++-tester --test_dir=${S}/src/test/testfiles
+}
+
