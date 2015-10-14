@@ -2,7 +2,7 @@ inherit cmake
 
 NAME="lucene++"
 VERSION=3.0.7
-RELEASE=1
+RELEASE=2
 CATEGORY="Libs"
 SUMMARY="C++ port of Lucene search engine"
 DESCRIPTION="Lucene++ is an up to date C++ port of the popular Java Lucene
@@ -10,7 +10,14 @@ library, a high-performance, full-featured text search engine."
 HOMEPAGE="https://github.com/luceneplusplus/LucenePlusPlus"
 SRC_URI="${HOMEPAGE}/archive/rel_${VERSION}/LucenePlusPlus-rel_${VERSION}.tar.gz"
 SRC_DIR="LucenePlusPlus-rel_${VERSION}"
-PATCH_URI="3.0.7-cmake-install.patch"
+PATCH_URI="
+	fedora/0001-Fix-FSDirectory-sync-to-sync-writes-to-disk.patch
+	fedora/0002-minor-fix-to-allow-full-lines-to-be-input-to-demo-qu.patch
+	fedora/0005-Use-maxSize-of-BooleanQuery-as-base-for-the-queue-si.patch
+	fedora/0006-Fix-packageconfig-path.patch
+	fedora/0007-boost-1.58-variant.patch
+	3.0.7-cmake-install.patch
+"
 
 PKG_NAMES="liblucene++0 liblucene++-devel"
 liblucene__0_CONTENTS="usr/bin/cyglucene++*-0.dll usr/share/doc/"
