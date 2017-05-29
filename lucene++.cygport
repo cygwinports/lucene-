@@ -2,7 +2,7 @@ inherit cmake
 
 NAME="lucene++"
 VERSION=3.0.7
-RELEASE=3
+RELEASE=4
 CATEGORY="Libs"
 SUMMARY="C++ port of Lucene search engine"
 DESCRIPTION="Lucene++ is an up to date C++ port of the popular Java Lucene
